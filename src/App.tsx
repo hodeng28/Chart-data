@@ -1,6 +1,6 @@
 import "./App.css";
 import styled from "styled-components";
-import Chart from "./Components/MonthlyStatistics";
+import MonthlyStatistics from "./Components/MonthlyStatistics";
 import Table from "./Components/Table";
 import WorkingPeriodStatistics from "./Components/WorkingPeriodStatistics";
 import { useQuery } from "react-query";
@@ -36,7 +36,7 @@ const App = () => {
         {chart1Data && (
           <>
             <Table chartData={chart1Data} />
-            <Chart chartData={chart1Data} />
+            <MonthlyStatistics chartData={chart1Data} />
           </>
         )}
         {chart2Data && <WorkingPeriodStatistics chartData={chart2Data} />}
