@@ -9,6 +9,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import months from "../consts/constants";
+import { theme } from "../theme/theme";
 
 ChartJS.register(
   CategoryScale,
@@ -37,20 +38,17 @@ const Chart = ({ chartData }: Chart1DataProps) => {
       {
         label: "A",
         data: A,
-        backgroundColor: "#1EDA00",
-        borderWidth: 8,
+        backgroundColor: `${theme.colors.primary}`,
       },
       {
         label: "B",
         data: B,
-        backgroundColor: "#FAFF00",
-        borderWidth: 8,
+        backgroundColor: `${theme.colors.secondary}`,
       },
       {
-        label: "total",
+        label: "Total",
         data: sumData,
-        backgroundColor: "#66B6FF",
-        borderWidth: 8,
+        backgroundColor: `${theme.colors.tertiary}`,
       },
     ],
   };
@@ -61,7 +59,26 @@ const Chart = ({ chartData }: Chart1DataProps) => {
         display: false,
       },
     },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+          stepSize: 20,
+        },
+        categorySpacing: 100,
+      },
+      y: {
+        grid: {
+          color: "rgba(255, 255, 255, 0.05))",
+        },
+        max: 100,
+        ticks: {
+          stepSize: 20,
+        },
+      },
+    },
   };
+
   return (
     <>
       <Bar data={data} options={options} />

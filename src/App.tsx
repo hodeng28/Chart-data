@@ -1,4 +1,5 @@
 import "./App.css";
+import styled from "styled-components";
 import Chart from "./Components/Chart";
 import Table from "./Components/Table";
 import Chart2 from "./Components/Chart2";
@@ -31,15 +32,22 @@ const App = () => {
 
   return (
     <div className="App">
-      {chart1Data && (
-        <>
-          <Table chartData={chart1Data} />
-          <Chart chartData={chart1Data} />
-        </>
-      )}
-      {chart2Data && <Chart2 chartData={chart2Data} />}
+      <Wrapper>
+        {chart1Data && (
+          <>
+            <Table chartData={chart1Data} />
+            <Chart chartData={chart1Data} />
+          </>
+        )}
+        {chart2Data && <Chart2 chartData={chart2Data} />}
+      </Wrapper>
     </div>
   );
 };
 
 export default App;
+
+const Wrapper = styled.main`
+  margin: 0 auto;
+  padding: 32px;
+`;
