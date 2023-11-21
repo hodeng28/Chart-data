@@ -1,0 +1,13 @@
+{
+  "chart1": {
+    "A": [0, 1, 16, 66, 23, 13, 32, 8, 4, 4, 42, 34],
+    "B": [0, 1, 33, 33, 52, 24, 64, 8, 4, 0, 22, 68]
+  },
+  "chart2": {
+    "zerotofive": 236,
+    "sixtoten": 347,
+    "eleventofifteen": 164,
+    "sixteentotwenty": 142,
+    "gttwenty": 50
+  }
+}
