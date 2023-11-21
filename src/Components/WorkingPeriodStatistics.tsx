@@ -8,7 +8,7 @@ interface Chart2DataProps {
   chartData: Chart2Data;
 }
 
-const Chart2 = ({ chartData }: Chart2DataProps) => {
+const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
   const values = Object.values(chartData);
 
   const months = [
@@ -55,7 +55,7 @@ const Chart2 = ({ chartData }: Chart2DataProps) => {
   );
 };
 
-export default Chart2;
+export default WorkingPeriodStatistics;
 
 // const StyledDounuts = styled.div`
 //   width: 100%;

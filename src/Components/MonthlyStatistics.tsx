@@ -24,7 +24,7 @@ interface Chart1DataProps {
   chartData: Chart1Data;
 }
 
-const Chart = ({ chartData }: Chart1DataProps) => {
+const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
   const { A, B } = chartData;
 
   const sumData = A.reduce((acc: any, value: number, index: number) => {
@@ -86,4 +86,4 @@ const Chart = ({ chartData }: Chart1DataProps) => {
   );
 };
 
-export default Chart;
+export default MonthlyStatistics;

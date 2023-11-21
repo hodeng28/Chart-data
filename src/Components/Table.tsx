@@ -63,6 +63,7 @@ const Table = ({ chartData }: Chart1DataProps) => {
 
 export default Table;
 
+// 스타일 바꿔야함
 const StyledTable = styled.table`
   width: 100%;
   margin-bottom: 32px;

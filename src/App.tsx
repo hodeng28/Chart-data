@@ -1,8 +1,8 @@
 import "./App.css";
 import styled from "styled-components";
-import Chart from "./Components/Chart";
+import Chart from "./Components/MonthlyStatistics";
 import Table from "./Components/Table";
-import Chart2 from "./Components/Chart2";
+import WorkingPeriodStatistics from "./Components/WorkingPeriodStatistics";
 import { useQuery } from "react-query";
 import { fetchChart1Data, fetchChart2Data } from "./Api/ChartApi";
 
@@ -39,7 +39,7 @@ const App = () => {
             <Chart chartData={chart1Data} />
           </>
         )}
-        {chart2Data && <Chart2 chartData={chart2Data} />}
+        {chart2Data && <WorkingPeriodStatistics chartData={chart2Data} />}
       </Wrapper>
     </div>
   );
