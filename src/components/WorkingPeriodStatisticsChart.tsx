@@ -39,6 +39,7 @@ const WorkingPeriodStatisticsChart = ({ chartData }: Chart2DataProps) => {
       legend: {
         position: 'bottom' as const,
         labels: {
+          padding: 24,
           usePointStyle: true,
           pointStyle: 'circle',
           pointStyleWidth: 10,
