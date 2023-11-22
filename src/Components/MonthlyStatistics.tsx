@@ -9,6 +9,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import months from "../consts/constants";
+import useSumData from "../hooks/useSumData";
 import { theme } from "../theme/theme";
 
 ChartJS.register(
@@ -27,10 +28,7 @@ interface Chart1DataProps {
 const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
   const { A, B } = chartData;
 
-  const sumData = A.reduce((acc: any, value: number, index: number) => {
-    acc.push(value + B[index]);
-    return acc;
-  }, []);
+  const sumData = useSumData(A, B);
 
   const data = {
     labels: months,

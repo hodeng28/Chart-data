@@ -11,7 +11,7 @@ interface Chart2DataProps {
 const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
   const values = Object.values(chartData);
 
-  const months = [
+  const periods = [
     "0~5년차",
     "6~10년차",
     "11~15년차",
@@ -20,7 +20,7 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
   ];
 
   const data = {
-    labels: months,
+    labels: periods,
     datasets: [
       {
         data: values,
@@ -31,10 +31,22 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
   };
 
   const options = {
-    responsive: false,
     plugins: {
       legend: {
         position: "bottom" as const,
+        labels: {
+          usePointStyle: true,
+          boxWidth: 10,
+          font: {
+            size: 13,
+          },
+        },
+      },
+      pieceLabel: {
+        render: "label",
+        fontColor: "#000",
+        position: "outside",
+        segment: true,
       },
       title: {
         display: true,
@@ -49,14 +61,15 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
   };
 
   return (
-    <>
+    <Wrapper>
       <Doughnut data={data} options={options} />
-    </>
+    </Wrapper>
   );
 };
 
 export default WorkingPeriodStatistics;
 
-// const StyledDounuts = styled.div`
-//   width: 100%;
-// `;
+const Wrapper = styled.div`
+  width: 360px;
+  margin: 100px auto 0;
+`;

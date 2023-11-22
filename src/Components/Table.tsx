@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import months from "../consts/constants";
+import useSumData from "../hooks/useSumData";
 import { theme } from "../theme/theme";
 
 interface Chart1DataProps {
@@ -9,13 +10,7 @@ interface Chart1DataProps {
 const Table = ({ chartData }: Chart1DataProps) => {
   const { A, B } = chartData;
 
-  const sumData: number[] = A.reduce(
-    (acc: any, value: number, index: number) => {
-      acc.push(value + B[index]);
-      return acc;
-    },
-    []
-  );
+  const sumData = useSumData(A, B);
 
   const calculateSum = (array: number[]): number => {
     return array.reduce((acc, val) => acc + val, 0);
