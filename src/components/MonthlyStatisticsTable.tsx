@@ -101,6 +101,7 @@ const StyledTBody = styled.tbody`
 
 const CommonStyledTd = styled.td`
   position: relative;
+  font-weight: 500;
 
   &::before {
     content: '';
@@ -133,14 +134,18 @@ const StyledTdTotal = styled(CommonStyledTd)`
   }
 `;
 
-const StyledTotalA = styled.td`
+const CommonStyledTotal = styled.td`
+  font-weight: 500;
+`;
+
+const StyledTotalA = styled(CommonStyledTotal)`
   color: ${colors.primary};
 `;
 
-const StyledTotalB = styled.td`
+const StyledTotalB = styled(CommonStyledTotal)`
   color: ${colors.secondary};
 `;
 
-const StyledTotal = styled.td`
+const StyledTotal = styled(CommonStyledTotal)`
   color: ${colors.tertiary};
 `;
