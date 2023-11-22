@@ -58,7 +58,8 @@ const Table = ({ chartData }: Chart1DataProps) => {
 
 export default Table;
 
-// 스타일 바꿔야함
+const { colors } = theme;
+
 const StyledTable = styled.table`
   width: 100%;
   margin-bottom: 32px;
@@ -97,8 +98,9 @@ const StyledTBody = styled.tbody`
   text-align: center;
 `;
 
-const StyledTdA = styled.td`
+const CommonStyledTd = styled.td`
   position: relative;
+
   &::before {
     content: "";
     display: inline-block;
@@ -108,49 +110,36 @@ const StyledTdA = styled.td`
     left: 12px;
     width: 10px;
     height: 10px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="5" fill="%231EDA00"/></svg>');
+    border-radius: 50%;
   }
 `;
 
-const StyledTdB = styled.td`
-  position: relative;
+const StyledTdA = styled(CommonStyledTd)`
   &::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 12px;
-    width: 10px;
-    height: 10px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="5" fill="%231EDA00"/></svg>');
+    background-color: ${colors.primary};
   }
 `;
 
-const StyledTdTotal = styled.td`
-  position: relative;
-
+const StyledTdB = styled(CommonStyledTd)`
   &::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="5" fill="%231EDA00"/></svg>');
+    background-color: ${colors.secondary};
+  }
+`;
+
+const StyledTdTotal = styled(CommonStyledTd)`
+  &::before {
+    background-color: ${colors.tertiary};
   }
 `;
 
 const StyledTotalA = styled.td`
-  color: ${theme.colors.primary};
+  color: ${colors.primary};
 `;
 
 const StyledTotalB = styled.td`
-  color: ${theme.colors.secondary};
+  color: ${colors.secondary};
 `;
 
 const StyledTotal = styled.td`
-  color: ${theme.colors.tertiary};
+  color: ${colors.tertiary};
 `;
