@@ -53,17 +53,8 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
           const halfWidth = width / 2;
           const halfHeight = height / 2;
 
-          const lineX = x >= halfWidth ? x + 35 : x - 35;
-          const lineY = y >= halfHeight ? y + 35 : y - 35;
-          const extraLine = x >= halfWidth ? 20 : -20;
-
           const label = chart.data.labels[index];
           const data = dataset.data[index];
-
-          const textPosition = x >= halfWidth ? "left" : "right";
-
-          const lineHeight = 13;
-          const whiteSpace = x >= halfWidth ? 5 : -5;
 
           const getPercentagesFromArray = (data: number[]) => {
             const total = data.reduce((sum, value) => sum + value, 0);
@@ -81,8 +72,9 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
 
           const dataPercentages = getPercentagesFromArray(dataset.data)[index];
 
-          const text = `${data}명\n${label}\n${dataPercentages}%`;
-          const lines = text.split("\n");
+          const lineX = x >= halfWidth ? x + 30 : x - 30;
+          const lineY = y >= halfHeight ? y + 30 : y - 30;
+          const extraLine = x >= halfWidth ? 20 : -20;
 
           ctx.beginPath();
           ctx.moveTo(x, y);
@@ -91,26 +83,41 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
           ctx.strokeStyle = "rgba(255, 255, 255, 0.80)";
           ctx.stroke();
 
+          const lineHeight = 13;
+          const textPosition = x >= halfWidth ? "left" : "right";
+          const whiteSpaceLineToText = x >= halfWidth ? 7 : -7;
+          const text = `${data}명\n${label}\n${dataPercentages}%`;
+          const linesBreak = text.split("\n");
+
           ctx.textAlign = textPosition;
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#fff";
 
-          lines.forEach((line, index) => {
+          linesBreak.forEach((line, index) => {
             ctx.fillText(
               line,
-              lineX + extraLine + whiteSpace,
+              lineX + extraLine + whiteSpaceLineToText,
               lineY + index * lineHeight
             );
           });
+
+          const addCircle = (ctx: any, x: number, y: number) => {
+            ctx.beginPath();
+            ctx.arc(x, y, 3, 0, 2 * Math.PI);
+            ctx.fillStyle = "#fff";
+            ctx.fill();
+            ctx.stroke();
+          };
+
+          addCircle(ctx, x, y);
+          addCircle(ctx, lineX + extraLine, lineY);
         });
       });
     },
   };
 
   const options = {
-    layout: {
-      padding: 30,
-    },
+    radius: "50%",
     plugins: {
       legend: {
         position: "bottom" as const,
@@ -143,6 +150,6 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
 export default WorkingPeriodStatistics;
 
 const Wrapper = styled.div`
-  width: 460px;
+  width: 400px;
   margin: 100px auto 0;
 `;
