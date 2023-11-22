@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import useSumData from "../hooks/useSumData";
-import { theme } from "../theme/theme";
-import months from "../consts/constants";
-import uuid from "react-uuid";
+import styled from 'styled-components';
+import useSumData from '../hooks/useSumData';
+import { theme } from '../theme/theme';
+import months from '../consts/constants';
+import uuid from 'react-uuid';
 
 interface Chart1DataProps {
   chartData: Chart1Data;
@@ -103,7 +103,7 @@ const CommonStyledTd = styled.td`
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     display: inline-block;
     position: absolute;
     top: 50%;

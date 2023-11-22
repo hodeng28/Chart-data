@@ -1,22 +1,22 @@
-import styled from "styled-components";
-import MonthlyStatisticsChart from "./components/MonthlyStatisticsChart";
-import MonthlyStatisticsTable from "./components/MonthlyStatisticsTable";
-import WorkingPeriodStatisticsChart from "./components/WorkingPeriodStatisticsChart";
-import { useQuery } from "react-query";
-import { fetchChart1Data, fetchChart2Data } from "./apis/ChartApis";
+import styled from 'styled-components';
+import MonthlyStatisticsChart from './components/MonthlyStatisticsChart';
+import MonthlyStatisticsTable from './components/MonthlyStatisticsTable';
+import WorkingPeriodStatisticsChart from './components/WorkingPeriodStatisticsChart';
+import { useQuery } from 'react-query';
+import { fetchChart1Data, fetchChart2Data } from './apis/ChartApis';
 
 const App = () => {
   const {
     data: chart1Data,
     isLoading: isLoadingChart1,
-    isError: isErrorChart1,
-  } = useQuery("chart1", fetchChart1Data);
+    isError: isErrorChart1
+  } = useQuery('chart1', fetchChart1Data);
 
   const {
     data: chart2Data,
     isLoading: isLoadingChart2,
-    isError: isErrorChart2,
-  } = useQuery("chart2", fetchChart2Data);
+    isError: isErrorChart2
+  } = useQuery('chart2', fetchChart2Data);
 
   const isLoading = isLoadingChart1 || isLoadingChart2;
   const isError = isErrorChart1 || isErrorChart2;

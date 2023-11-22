@@ -5,12 +5,12 @@ import {
   BarElement,
   Title,
   Tooltip,
-  Legend,
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
-import useSumData from "../hooks/useSumData";
-import months from "../consts/constants";
-import { theme } from "../theme/theme";
+  Legend
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+import useSumData from '../hooks/useSumData';
+import months from '../consts/constants';
+import { theme } from '../theme/theme';
 
 ChartJS.register(
   CategoryScale,
@@ -35,42 +35,42 @@ const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
     labels: months,
     datasets: [
       {
-        label: "A",
+        label: 'A',
         data: A,
-        backgroundColor: `${colors.primary}`,
+        backgroundColor: `${colors.primary}`
       },
       {
-        label: "B",
+        label: 'B',
         data: B,
-        backgroundColor: `${colors.secondary}`,
+        backgroundColor: `${colors.secondary}`
       },
       {
-        label: "Total",
+        label: 'Total',
         data: sumData,
-        backgroundColor: `${colors.tertiary}`,
-      },
-    ],
+        backgroundColor: `${colors.tertiary}`
+      }
+    ]
   };
 
   const options = {
     plugins: {
       legend: {
-        display: false,
-      },
+        display: false
+      }
     },
     scales: {
       x: {
         grid: {
-          display: false,
-        },
+          display: false
+        }
       },
       y: {
         max: 100,
         ticks: {
-          stepSize: 20,
-        },
-      },
-    },
+          stepSize: 20
+        }
+      }
+    }
   };
 
   return (
