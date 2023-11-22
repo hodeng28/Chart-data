@@ -8,8 +8,8 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import months from "../consts/constants";
 import useSumData from "../hooks/useSumData";
+import months from "../consts/constants";
 import { theme } from "../theme/theme";
 
 ChartJS.register(
@@ -27,6 +27,7 @@ interface Chart1DataProps {
 
 const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
   const { A, B } = chartData;
+  const { colors } = theme;
 
   const sumData = useSumData(A, B);
 
@@ -36,17 +37,17 @@ const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
       {
         label: "A",
         data: A,
-        backgroundColor: `${theme.colors.primary}`,
+        backgroundColor: `${colors.primary}`,
       },
       {
         label: "B",
         data: B,
-        backgroundColor: `${theme.colors.secondary}`,
+        backgroundColor: `${colors.secondary}`,
       },
       {
         label: "Total",
         data: sumData,
-        backgroundColor: `${theme.colors.tertiary}`,
+        backgroundColor: `${colors.tertiary}`,
       },
     ],
   };
@@ -61,14 +62,9 @@ const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
       x: {
         grid: {
           display: false,
-          stepSize: 20,
         },
-        categorySpacing: 100,
       },
       y: {
-        grid: {
-          color: "rgba(255, 255, 255, 0.05))",
-        },
         max: 100,
         ticks: {
           stepSize: 20,

@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import months from "../consts/constants";
 import useSumData from "../hooks/useSumData";
 import { theme } from "../theme/theme";
+import months from "../consts/constants";
 
 interface Chart1DataProps {
   chartData: Chart1Data;
 }
 
-const Table = ({ chartData }: Chart1DataProps) => {
+const MonthlyStatisticsTable = ({ chartData }: Chart1DataProps) => {
   const { A, B } = chartData;
 
   const sumData = useSumData(A, B);
@@ -56,7 +56,7 @@ const Table = ({ chartData }: Chart1DataProps) => {
   );
 };
 
-export default Table;
+export default MonthlyStatisticsTable;
 
 const { colors } = theme;
 

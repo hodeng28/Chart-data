@@ -1,6 +1,6 @@
+import styled from "styled-components";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import styled from "styled-components";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
@@ -8,7 +8,7 @@ interface Chart2DataProps {
   chartData: Chart2Data;
 }
 
-const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
+const WorkingPeriodStatisticsChart = ({ chartData }: Chart2DataProps) => {
   const values = Object.values(chartData);
 
   const colors = ["#1EDA00", "#FAFF00", "#F90", "#FF2128", "#9E048E"];
@@ -31,6 +31,30 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
         cutout: "60%",
       },
     ],
+  };
+
+  const options = {
+    radius: "50%",
+    plugins: {
+      legend: {
+        position: "bottom" as const,
+        labels: {
+          usePointStyle: true,
+          font: {
+            size: 13,
+          },
+        },
+      },
+      title: {
+        display: true,
+        text: "근속 연수",
+        font: {
+          size: 16,
+          weight: "bold",
+        },
+        color: "#fff",
+      },
+    },
   };
 
   const labelsPlugin = {
@@ -101,7 +125,11 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
             );
           });
 
-          const addCircle = (ctx: any, x: number, y: number) => {
+          const addCircleToLine = (
+            ctx: CanvasRenderingContext2D,
+            x: number,
+            y: number
+          ) => {
             ctx.beginPath();
             ctx.arc(x, y, 3, 0, 2 * Math.PI);
             ctx.fillStyle = "#fff";
@@ -109,34 +137,10 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
             ctx.stroke();
           };
 
-          addCircle(ctx, x, y);
-          addCircle(ctx, lineX + extraLine, lineY);
+          addCircleToLine(ctx, x, y);
+          addCircleToLine(ctx, lineX + extraLine, lineY);
         });
       });
-    },
-  };
-
-  const options = {
-    radius: "50%",
-    plugins: {
-      legend: {
-        position: "bottom" as const,
-        labels: {
-          usePointStyle: true,
-          font: {
-            size: 13,
-          },
-        },
-      },
-      title: {
-        display: true,
-        text: "근속 연수",
-        font: {
-          size: 16,
-          weight: "bold",
-        },
-        color: "#fff",
-      },
     },
   };
 
@@ -147,7 +151,7 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
   );
 };
 
-export default WorkingPeriodStatistics;
+export default WorkingPeriodStatisticsChart;
 
 const Wrapper = styled.div`
   width: 400px;
