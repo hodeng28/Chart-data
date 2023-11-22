@@ -37,17 +37,23 @@ const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
       {
         label: 'A',
         data: A,
-        backgroundColor: `${colors.primary}`
+        backgroundColor: `${colors.primary}`,
+        borderWidth: 1,
+        barThickness: 8
       },
       {
         label: 'B',
         data: B,
-        backgroundColor: `${colors.secondary}`
+        backgroundColor: `${colors.secondary}`,
+        borderWidth: 1,
+        barThickness: 8
       },
       {
         label: 'Total',
         data: sumData,
-        backgroundColor: `${colors.tertiary}`
+        backgroundColor: `${colors.tertiary}`,
+        borderWidth: 1,
+        barThickness: 8
       }
     ]
   };
@@ -58,6 +64,7 @@ const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
         display: false
       }
     },
+
     scales: {
       x: {
         grid: {
@@ -75,7 +82,7 @@ const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
 
   return (
     <>
-      <Bar data={data} options={options} />
+      <Bar style={{ display: 'block' }} data={data} options={options} />
     </>
   );
 };
