@@ -2,6 +2,7 @@ import styled from "styled-components";
 import useSumData from "../hooks/useSumData";
 import { theme } from "../theme/theme";
 import months from "../consts/constants";
+import uuid from "react-uuid";
 
 interface Chart1DataProps {
   chartData: Chart1Data;
@@ -31,15 +32,15 @@ const MonthlyStatisticsTable = ({ chartData }: Chart1DataProps) => {
         <StyledTBody>
           <tr>
             <StyledTdA>A</StyledTdA>
-            {A.map((data, index: number) => (
-              <td key={index}>{data}</td>
+            {A.map((data) => (
+              <td key={uuid()}>{data}</td>
             ))}
             <StyledTotalA>{calculateSum(A)}</StyledTotalA>
           </tr>
           <tr>
             <StyledTdB>B</StyledTdB>
-            {B.map((data, index: number) => (
-              <td key={index}>{data}</td>
+            {B.map((data) => (
+              <td key={uuid()}>{data}</td>
             ))}
             <StyledTotalB>{calculateSum(B)}</StyledTotalB>
           </tr>
