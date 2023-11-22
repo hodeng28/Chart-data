@@ -52,15 +52,37 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
 
           const halfWidth = width / 2;
           const halfHeight = height / 2;
-          const extraLine = x >= halfWidth ? 20 : -20;
 
-          const lineX = x >= halfWidth ? x + 30 : x - 30;
-          const lineY = y >= halfHeight ? y + 30 : y - 30;
+          const lineX = x >= halfWidth ? x + 35 : x - 35;
+          const lineY = y >= halfHeight ? y + 35 : y - 35;
+          const extraLine = x >= halfWidth ? 20 : -20;
 
           const label = chart.data.labels[index];
           const data = dataset.data[index];
 
           const textPosition = x >= halfWidth ? "left" : "right";
+
+          const lineHeight = 13;
+          const whiteSpace = x >= halfWidth ? 5 : -5;
+
+          const getPercentagesFromArray = (data: number[]) => {
+            const total = data.reduce((sum, value) => sum + value, 0);
+
+            const percentages = data.map((value) =>
+              Math.round((value / total) * 100)
+            );
+
+            const remainingPercentage =
+              100 - percentages.reduce((sum, value) => sum + value, 0);
+            percentages[percentages.length - 1] += remainingPercentage;
+
+            return percentages;
+          };
+
+          const dataPercentages = getPercentagesFromArray(dataset.data)[index];
+
+          const text = `${data}명\n${label}\n${dataPercentages}%`;
+          const lines = text.split("\n");
 
           ctx.beginPath();
           ctx.moveTo(x, y);
@@ -69,14 +91,16 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
           ctx.strokeStyle = "rgba(255, 255, 255, 0.80)";
           ctx.stroke();
 
-          const text = `${data}명\n${label}\n${30}%`;
-          const lines = text.split("\n");
-          const lineHeight = 13;
           ctx.textAlign = textPosition;
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#fff";
+
           lines.forEach((line, index) => {
-            ctx.fillText(line, lineX + extraLine, lineY + index * lineHeight);
+            ctx.fillText(
+              line,
+              lineX + extraLine + whiteSpace,
+              lineY + index * lineHeight
+            );
           });
         });
       });
@@ -92,7 +116,6 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
         position: "bottom" as const,
         labels: {
           usePointStyle: true,
-          boxWidth: 10,
           font: {
             size: 13,
           },
@@ -120,6 +143,6 @@ const WorkingPeriodStatistics = ({ chartData }: Chart2DataProps) => {
 export default WorkingPeriodStatistics;
 
 const Wrapper = styled.div`
-  width: 350px;
+  width: 460px;
   margin: 100px auto 0;
 `;
