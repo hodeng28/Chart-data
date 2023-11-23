@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// 배포용 mock data
 const BASE_URL =
   'https://gist.githubusercontent.com/hodeng28/f1fbf6d6e342e67282d2f35646ed42ad/raw/52dfd27c08146969ed9ff79ef6eaef263dc17a73/gistfile1.txt';
 
