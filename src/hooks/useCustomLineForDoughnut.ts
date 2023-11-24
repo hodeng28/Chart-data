@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const useCustomLine = () => {
+const useCustomLineForDoughnut = () => {
   const getCustomLine = (chart: any) => {
     const ctx = chart.ctx;
     const { width, height } = chart;
@@ -107,4 +107,4 @@ const useCustomLine = () => {
   return getCustomLine;
 };
 
-export default useCustomLine;
+export default useCustomLineForDoughnut;

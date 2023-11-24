@@ -8,7 +8,7 @@ import {
   Legend
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import useSumData from '../hooks/useSumData';
+import useSumArray from '../hooks/useSumArray';
 import months from '../consts/constants';
 import { theme } from '../theme/theme';
 
@@ -29,7 +29,7 @@ const MonthlyStatistics = ({ chartData }: Chart1DataProps) => {
   const { A, B } = chartData;
   const { colors } = theme;
 
-  const sumData = useSumData(A, B);
+  const sumData = useSumArray(A, B);
 
   const data = {
     labels: months,

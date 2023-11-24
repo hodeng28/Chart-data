@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import useCustomLine from '../hooks/useCustomLine';
+import useCustomLineForDoughnut from '../hooks/useCustomLineForDoughnut';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
@@ -14,7 +14,7 @@ const WorkingPeriodStatisticsChart = ({ chartData }: Chart2DataProps) => {
 
   const colors = ['#1EDA00', '#FAFF00', '#F90', '#FF2128', '#9E048E'];
 
-  const getCustomLine = useCustomLine;
+  const getCustomLine = useCustomLineForDoughnut;
 
   const periods = [
     '0~5년차',

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import useSumData from '../hooks/useSumData';
+import useSumArray from '../hooks/useSumArray';
 import { theme } from '../theme/theme';
 import months from '../consts/constants';
 import uuid from 'react-uuid';
@@ -11,7 +11,7 @@ interface Chart1DataProps {
 const MonthlyStatisticsTable = ({ chartData }: Chart1DataProps) => {
   const { A, B } = chartData;
 
-  const sumData = useSumData(A, B);
+  const sumData = useSumArray(A, B);
 
   const calculateSum = (array: number[]): number => {
     return array.reduce((acc, val) => acc + val, 0);

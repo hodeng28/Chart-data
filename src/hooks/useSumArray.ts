@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-const useSumData = (A: number[], B: number[]) => {
+const useSumArray = (A: number[], B: number[]) => {
   const sumData = useMemo(() => {
     return A.map((value, index) => value + B[index]);
   }, [A, B]);
@@ -8,4 +8,4 @@ const useSumData = (A: number[], B: number[]) => {
   return sumData;
 };
 
-export default useSumData;
+export default useSumArray;
