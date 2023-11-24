@@ -5,14 +5,15 @@ https://chartdata.vercel.app/
 ## Requirements
 
 - 사용 언어<br>
- HTML5, CSS3, JS6+, TypeScript, Styled-Components
+ HTML5, CSS3, JS6+, TypeScript, 
 
 - 라이브러리<br>
- react v.18.2.0<br>
- react-query v.3.39.3<br>
- react-chartjs-2 v.5.2.0<br>
- axios v.1.6.2<br>
- react-uuid v.2.0.0<br>
+ React v.18.2.0<br>
+ React-Query v.3.39.3<br>
+ React-Chartjs-2 v.5.2.0<br>
+ Axios v.1.6.2<br>
+ React-uuid v.2.0.0<br>
+ Styled-Components v.6.1.1
  
 
 ## Getting Started
