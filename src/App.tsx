@@ -4,6 +4,7 @@ import MonthlyStatisticsTable from './components/MonthlyStatisticsTable';
 import WorkingPeriodStatisticsChart from './components/WorkingPeriodStatisticsChart';
 import { useQuery } from 'react-query';
 import { fetchChart1Data, fetchChart2Data } from './apis/ChartApis';
+import WorkingPeriodStatisticsHalfDoughnut from './components/WorkingPeriodStatisticsHalfDoughnut';
 
 const App = () => {
   const {
@@ -38,7 +39,12 @@ const App = () => {
             <MonthlyStatisticsChart chartData={chart1Data} />
           </>
         )}
-        {chart2Data && <WorkingPeriodStatisticsChart chartData={chart2Data} />}
+        {chart2Data && (
+          <>
+            <WorkingPeriodStatisticsChart chartData={chart2Data} />
+            <WorkingPeriodStatisticsHalfDoughnut chartData={chart2Data} />
+          </>
+        )}
       </ChartWrapper>
     </Contaner>
   );
