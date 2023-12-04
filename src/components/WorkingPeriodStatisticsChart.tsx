@@ -66,7 +66,7 @@ const WorkingPeriodStatisticsChart = ({ chartData }: Chart2DataProps) => {
 
   const labelsPlugin = {
     id: 'labelsPlugin',
-    afterDatasetsDraw: getCustomLine
+    afterDatasetsDraw: getCustomLine()
   };
 
   return (
